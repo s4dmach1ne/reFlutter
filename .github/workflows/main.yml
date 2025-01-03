@@ -27,10 +27,12 @@ jobs:
           python3 --version
           git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
           git clone https://github.com/flutter/engine.git
+          pip3 install reflutter==0.8.0
+          reflutter
       - name: gclient sync
         run: |
           ROOT_DIR=$(pwd)
-          export PATH=$PATH:$ROOT_DIR/depot_tools:/Library/Frameworks/Python.framework/Versions/3.13/bin
+          export PATH=$PATH:$ROOT_DIR/depot_tools:/Library/Frameworks/Python.framework/Versions/3.13.1/bin
           cd engine
           git config --global user.email "reflutter@example.com" && git config --global user.name "reflutter"
           SNAPSHOT=$(reflutter ${{env.SNAPSHOT_HASH}} -l)
