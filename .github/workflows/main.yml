@@ -20,11 +20,12 @@ jobs:
           echo "SNAPSHOT_HASH=$HASH" >> $GITHUB_ENV
       - name: Install tools
         run: |
-          brew install ninja libusbmuxd ideviceinstaller ios-deploy python@3.11
-          sudo rm -rf /usr/local/bin/python3
-          sudo ln -s /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 /usr/local/bin/python3
-          python3 -m pip install wheel
-          python3 -m pip install .
+          brew install ninja libusbmuxd ideviceinstaller ios-deploy # python@3.11
+          # sudo rm -rf /usr/local/bin/python3
+          # sudo ln -s /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 /usr/local/bin/python3
+          # python3 -m pip install wheel
+          # python3 -m pip install .
+          python3 --version
           git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
           git clone https://github.com/flutter/engine.git
       - name: gclient sync
